@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 
 import "./Main.scss";
 import axios from "axios";
-import { Link } from "react-router-dom";
 
 const API = "https://pokeapi.co/api/v2/pokemon/";
 
@@ -14,7 +13,7 @@ function Main() {
       const res = await axios.get(API);
 
       console.log(res);
-      setValue(res.data);
+      setValue(res.data.results);
     } catch (error) {
       console.log(error);
     }
@@ -30,13 +29,15 @@ function Main() {
         <div className="main__text">
           <h1>GEEKS</h1>
         </div>
-        <div className="main__content">
-          {value.results?.map((item) => (
-            <div className="main__mocApi">
-              <img src={item.url} alt="" />
-              <h2>{item.name}</h2>
-            </div>
-          ))}
+        <div className="main__block">
+          <div className="main__content">
+            {value.map((item, index) => (
+              <div key={index} className="main__mocApi">
+                <img src={item.url} alt="" />
+                <h2>{item.name}</h2>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </div>
