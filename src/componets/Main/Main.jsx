@@ -29,20 +29,18 @@ function Main() {
         <div className="main__text">
           <h1>GEEKS</h1>
         </div>
-        <div className="main__block">
-          <div className="main__content">
-            {value.map((item, index) => (
-              <div key={index} className="main__mocApi">
-                <img
-                  src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${
-                    index + 1
-                  }.png`}
-                  alt={value.name}
-                />
-                <h2>{item.name}</h2>
-              </div>
-            ))}
-          </div>
+        <div className="main__content">
+          {value.map((item, index) => (
+            <div key={index} className="main__mocApi">
+              <img
+                src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${
+                  index + 1
+                }.png`}
+                alt={value.name}
+              />
+              <h2>{item.name}</h2>
+            </div>
+          ))}
         </div>
       </div>
     </div>
